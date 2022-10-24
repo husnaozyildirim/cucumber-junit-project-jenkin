@@ -19,7 +19,8 @@ public class BrowserUtils {
     }
 
     public static void verifyTitle( String expectedTitle){
-        Assert.assertEquals(expectedTitle,Driver.getDriver().getTitle());
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
     }
 
     public static void waitForInvisibilityOf(WebElement element,int seconds){
