@@ -1,3 +1,4 @@
+@backgroundExample
 Feature: Calculate should work for simple math
 
   As a user I should be able to do simple math
