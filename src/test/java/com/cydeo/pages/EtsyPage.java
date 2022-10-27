@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GooglePage  {
+public class EtsyPage extends BaseWebpage{
 
-    public GooglePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
 
-    @FindBy (name = "q")
+@FindBy (name = "search_query")
     public WebElement searchBox;
+
+@FindBy (css = "span[class='wt-icon wt-nudge-b-2 wt-nudge-r-1']")
+public WebElement searchBtn;
 }
