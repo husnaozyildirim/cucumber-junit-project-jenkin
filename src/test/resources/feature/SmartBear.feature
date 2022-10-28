@@ -41,7 +41,6 @@ Feature:
     * User selects "<card type>" as card type
     * User enters "<card number>" to card number
     * User enters "<expiration date>" to expiration date
-
     * User clicks process button
     Then User verifies "<name>" is in the list
     Examples:
