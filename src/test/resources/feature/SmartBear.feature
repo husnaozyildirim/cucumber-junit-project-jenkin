@@ -28,17 +28,16 @@ Feature:
   #password="test"
   #
 
-  @wip @smartBear
+  @smartBear
   Scenario: SmartBear order process
     Given User is logged into SmartBear Tester account and on Order page
-    When User fills out the form as followed
-    And User selects "FamilyAlbum" from product dropdown
+    When User selects "FamilyAlbum" from product dropdown
     * User enters "4" to quantity
     * User enters "John Wick" to costumer name
     * User enters "Kinzie Ave to street"
     * User enters "Chicago" to city
     * User enters "IL" to state
-    * User enters "60056"
+    * User enters "60056" zip
     * User selects "Visa" as card type
     * User enters "1111222233334444" to card number
     * User enters "12/22" to expiration date
