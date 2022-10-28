@@ -1,7 +1,6 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.SmartBearPage;
-import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -62,8 +61,13 @@ public class SmartBear {
     }
 
     @When("User selects {string} as card type")
-    public void user_selects_as_card_type(String visaType) {
-        smartBearPage.visaRadioBtn.click();
+    public void user_selects_as_card_type(String cardType) {
+        List<WebElement> cardTypeWebElement = Driver.getDriver().findElements(By.xpath("//table[@id='ctl00_MainContent_fmwOrder_cardList']/tbody/tr/td/input"));
+        for (WebElement each : cardTypeWebElement) {
+            if (each.getAttribute("value").equals(cardType)){
+                each.click();
+            }
+        }
     }
 
     @When("User enters {string} to card number")
@@ -79,23 +83,21 @@ public class SmartBear {
     @When("User clicks process button")
     public void user_clicks_process_button() {
         smartBearPage.processBtn.click();
-        BrowserUtils.sleep(3);
     }
 
-    @Then("User verifies John Wick is in the list")
-    public void user_verifies_john_wick_is_in_the_list() {
+
+    @Then("User verifies {string} is in the list")
+    public void userVerifiesIsInTheList(String name) {
         smartBearPage.viewAllOrders.click();
         List<WebElement> listOfAllOrdersNames = Driver.getDriver().findElements(By.xpath("//table[@class='SampleTable']//tbody/tr/td[2]"));
 
-        WebElement johnWebElm  = null;
+        WebElement nameWebElm = null;
         for (WebElement each : listOfAllOrdersNames) {
-            if (each.getText().equals("John Wick")) {
-                johnWebElm = each ;
+            if (each.getText().equals(name)) {
+                nameWebElm = each;
             }
         }
 
-        Assert.assertTrue(johnWebElm.isDisplayed());
-
+        Assert.assertTrue(nameWebElm.isDisplayed());
     }
-
 }
