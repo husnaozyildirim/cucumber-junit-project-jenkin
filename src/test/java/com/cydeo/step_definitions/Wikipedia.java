@@ -12,7 +12,7 @@ public class Wikipedia {
 
     @Given("User is on Wikipedia home page")
     public void user_is_on_wikipedia_home_page() {
-        Driver.getDriver().get("https://www.wikipedia.org/");
+        Driver.getDriverPool().get("https://www.wikipedia.org/");
     }
 
     @When("User clicks wiki search button")
@@ -27,7 +27,7 @@ public class Wikipedia {
 
     @Then("User see {string} is in the wiki title")
     public void userSeesIsInTheWikiTitle(String arg0) {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(arg0));
+        Assert.assertTrue(Driver.getDriverPool().getTitle().contains(arg0));
     }
 
     @Then("User see {string} is in the main header")

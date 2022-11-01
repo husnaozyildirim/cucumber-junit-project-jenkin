@@ -18,7 +18,7 @@ public class SmartBear {
 
     @Given("User is logged into SmartBear Tester account and on Order page")
     public void user_is_logged_into_smart_bear_tester_account_and_on_order_page() {
-        Driver.getDriver().get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
+        Driver.getDriverPool().get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
         smartBearPage.usernameInput.sendKeys("Tester");
         smartBearPage.passwordInput.sendKeys("test");
         smartBearPage.loginBtn.click();
@@ -62,7 +62,7 @@ public class SmartBear {
 
     @When("User selects {string} as card type")
     public void user_selects_as_card_type(String cardType) {
-        List<WebElement> cardTypeWebElement = Driver.getDriver().findElements(By.xpath("//table[@id='ctl00_MainContent_fmwOrder_cardList']/tbody/tr/td/input"));
+        List<WebElement> cardTypeWebElement = Driver.getDriverPool().findElements(By.xpath("//table[@id='ctl00_MainContent_fmwOrder_cardList']/tbody/tr/td/input"));
         for (WebElement each : cardTypeWebElement) {
             if (each.getAttribute("value").equals(cardType)){
                 each.click();
@@ -89,7 +89,7 @@ public class SmartBear {
     @Then("User verifies {string} is in the list")
     public void userVerifiesIsInTheList(String name) {
         smartBearPage.viewAllOrders.click();
-        List<WebElement> listOfAllOrdersNames = Driver.getDriver().findElements(By.xpath("//table[@class='SampleTable']//tbody/tr/td[2]"));
+        List<WebElement> listOfAllOrdersNames = Driver.getDriverPool().findElements(By.xpath("//table[@class='SampleTable']//tbody/tr/td[2]"));
 
         WebElement nameWebElm = null;
         for (WebElement each : listOfAllOrdersNames) {

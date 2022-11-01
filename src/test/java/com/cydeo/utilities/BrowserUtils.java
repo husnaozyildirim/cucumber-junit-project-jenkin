@@ -1,8 +1,6 @@
 package com.cydeo.utilities;
 
-import com.cydeo.pages.DropdownPage;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -24,17 +22,17 @@ public class BrowserUtils {
     }
 
     public static void verifyTitle( String expectedTitle){
-        String actualTitle = Driver.getDriver().getTitle();
+        String actualTitle = Driver.getDriverPool().getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
     }
 
     public static void waitForInvisibilityOf(WebElement element,int seconds){
-        WebDriverWait wait =new WebDriverWait(Driver.getDriver(),seconds);
+        WebDriverWait wait =new WebDriverWait(Driver.getDriverPool(),seconds);
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
     public static void waitForVisibilityOf(WebElement element,int seconds){
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),seconds);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriverPool(),seconds);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

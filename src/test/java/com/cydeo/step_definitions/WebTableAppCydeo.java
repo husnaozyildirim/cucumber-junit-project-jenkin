@@ -24,7 +24,7 @@ public class WebTableAppCydeo {
 
     @Given("go to: Web table Application webpage")
     public void go_to_https_web_table_cydeo_com_login() {
-        Driver.getDriver().get("https://web-table-2.cydeo.com/login");
+        Driver.getDriverPool().get("https://web-table-2.cydeo.com/login");
     }
 
     @When("enter username and password ang login")
@@ -34,13 +34,13 @@ public class WebTableAppCydeo {
 
     @Then("verify URL should end with {string}")
     public void verify_url_should_end_with(String str) {
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().endsWith(str));
+        Assert.assertTrue(Driver.getDriverPool().getCurrentUrl().endsWith(str));
     }
 
 
     @Given("user is already logged in and on order page")
     public void userIsAlreadyLoggedInAndOnOrderPage() {
-        Driver.getDriver().get(ConfigReader.getProperty("env"));
+        Driver.getDriverPool().get(ConfigReader.getProperty("env"));
         page.loginWebTableApp(ConfigReader.getProperty("username"), ConfigReader.getProperty("password"));
         basePage.order.click();
     }

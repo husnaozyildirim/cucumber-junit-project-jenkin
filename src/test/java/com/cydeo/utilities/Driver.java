@@ -8,33 +8,33 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Driver {
     private Driver(){}//private constructor, limit access to obj of this class from outside the class
 
-   private static WebDriver driver;
+   private static InheritableThreadLocal<WebDriver> driverPool =new InheritableThreadLocal<>();
 
-    public static WebDriver getDriver(){
-        if (driver == null){
+    public static WebDriver getDriverPool(){
+        if (driverPool.get() == null){
             String browserType = ConfigReader.getProperty("browser");
             switch (browserType){
                 case "chrome" :
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
+                    driverPool.set(new ChromeDriver()) ;
+                    driverPool.get().manage().window().maximize();
                     //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
+                    driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
                    // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
             }
         }
-        return driver;
+        return driverPool.get();
     }
 
     public static void closeDriver (){ //this method will make sure our driver value is always null after using quit() method
-        if (driver != null){
-            driver.quit();//will kill the session,
-            driver = null ;
+        if (driverPool.get() != null){
+            driverPool.get().quit();//will kill the session,
+            driverPool.remove();
         }
     }
 

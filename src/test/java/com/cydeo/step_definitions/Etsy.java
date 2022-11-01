@@ -12,12 +12,12 @@ public class Etsy {
 
     @Given("User is on https:www.etsy.com")
     public void user_is_on_https_www_etsy_com() {
-        Driver.getDriver().get("https://www.etsy.com");
+        Driver.getDriverPool().get("https://www.etsy.com");
     }
     @Then("User sees title is as expected")
     public void user_sees_title_is_as_expected() {
         String expectedTitle = "Etsy - Shop for handmade, vintage, custom, and unique gifts for everyone";
-        Assert.assertEquals(expectedTitle,Driver.getDriver().getTitle());
+        Assert.assertEquals(expectedTitle,Driver.getDriverPool().getTitle());
     }
 
     @When("User types Wooden Spoon in the search box")
@@ -31,7 +31,7 @@ etsyPage.searchBtn.click();
     }
     @Then("User sees Wooden Spoon is in the title")
     public void user_sees_wooden_spoon_is_in_the_title() {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains("Wooden spoon"));
+        Assert.assertTrue(Driver.getDriverPool().getTitle().contains("Wooden spoon"));
     }
 
     @When("User types {string} in the search box")
@@ -40,6 +40,6 @@ etsyPage.searchBtn.click();
     }
     @Then("User sees {string} is in the title")
     public void user_sees_is_in_the_title(String string) {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
+        Assert.assertTrue(Driver.getDriverPool().getTitle().contains(string));
     }
 }
