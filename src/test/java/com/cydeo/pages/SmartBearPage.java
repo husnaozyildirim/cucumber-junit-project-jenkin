@@ -3,7 +3,7 @@ package com.cydeo.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SmartBearPage extends BaseWebpage {
+public class SmartBearPage extends BasePage {
     @FindBy(id = "ctl00_MainContent_username")
     public WebElement usernameInput;
 

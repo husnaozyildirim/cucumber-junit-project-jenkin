@@ -8,9 +8,6 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
-
-
-
     @After
     public void tearDownScenario(Scenario scenario) { // we will implement taking screenshot in this method
 

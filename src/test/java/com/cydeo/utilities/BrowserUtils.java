@@ -52,4 +52,17 @@ public class BrowserUtils {
         return actualOptionsAsString ;
     }
 
+    /**
+     * this method will accept of radio button as a List<WebElement>
+     *     it will loop through the List, and click to the radio button with provided attribute value
+     * </WebElement>
+     * @param radioBtn
+     * @param attributeValue
+     */
+    public static void clickRadioButton(List<WebElement> radioBtn,String attributeValue){
+        radioBtn.stream().forEach(p -> {
+            if (p.getAttribute("value").equalsIgnoreCase(attributeValue)) p.click();
+        });
+    }
+
 }
