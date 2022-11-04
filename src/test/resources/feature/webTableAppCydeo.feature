@@ -11,6 +11,7 @@ Background:
       | password | Tester |
     Then verify URL should end with "orders"
 
+
   Scenario: Negative login scenario
     Given go to: Web table Application webpage
     When enter username and password ang login
@@ -18,7 +19,7 @@ Background:
       | password | qa |
     Then verify URL should end with "orders"
 
-@wip
+
   Scenario Outline: User should be able to place order and order seen in web table
     Given user is already logged in and on order page
     When user selects "<product type>" product type

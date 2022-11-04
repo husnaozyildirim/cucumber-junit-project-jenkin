@@ -7,4 +7,4 @@ Feature: Google search functionality
   Scenario: Search functionality result title verification
     Given User is on Google search page
     When User types "words" in the google search box and clicks enter
-    Then User sees "words – Google Search" is in the google title
+    Then User sees "words - Google Search" is in the google title
