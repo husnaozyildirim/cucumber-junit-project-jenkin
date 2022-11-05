@@ -7,27 +7,35 @@ import java.util.List;
 
 public class HioscarPage extends BasePage{
 
-    @FindBy (css = "button[class='Button_button__1_TCE CTABase_base__dmoHJ CTABase_base_secondary__10EcP CTABase_base_hideFocus__1ZmK1 CTABase_oscar2020_light__2O5XN CTABase_base_button__3E47u']")
+    @FindBy (xpath = "//div[@class='Button_content__yNdi7']/span[.='Search network']")
     public WebElement searchNetworkBtn ;
 
-    @FindBy(xpath = "(//div[@class='DropdownOverlayAttachment_triggerContainer__129mH'])[1]")
+    @FindBy(xpath = "(//div[@class='fieldMessages_field__hR-R1'])[1]")
     public  WebElement coverageYear ;
 
-    @FindBy (xpath = "//ul[@id='unnamed-20']//div")
+    @FindBy (xpath = "//li[@class='DropdownOverlayItem_unselectable__Pa5zw']")
     public List<WebElement> coverageYearOptions;
 
-    @FindBy (xpath = "(//div[@class='DropdownOverlayAttachment_triggerContainer__129mH'])[2]")
+    @FindBy (xpath = "(//div[@class='fieldMessages_field__hR-R1'])[2]")
     public WebElement coverageAccess ;
 
     @FindBy (xpath = "//li[@class='DropdownOverlayItem_unselectable__Pa5zw']/div")
     public List<WebElement> accessOptions ;
 
-    @FindBy (xpath = "(//div[@class='Dropdown_visibleContent__NGHUm'])[3]")
+    @FindBy (xpath = "(//div[@class='fieldMessages_field__hR-R1'])[3]")
     public WebElement networkPartner ;
 
-    @FindBy (xpath = "//div[@class='DropdownOverlayItem_item__36OV6 DropdownOverlayItem_item_size-small__3eMNL']")
+    @FindBy (xpath = "//li[@class='DropdownOverlayItem_unselectable__Pa5zw']/div")
 public List<WebElement> networkPartnerOption ;
 
 
+    @FindBy (xpath = "(//div[@class='fieldMessages_field__hR-R1'])[4]")
+    public WebElement coverageArea ;
+
+    @FindBy (xpath = "//li[@class='DropdownOverlayItem_unselectable__Pa5zw']")
+    public List<WebElement> coverageAreaOptions ;
+
+    @FindBy (xpath = "//button[@class='Button_buttonBase__26hAr Button_filled__1Lgot Button_button_primary__1BOBS Button_button_medium__2_2dm NetworkSelector_buttonSubmit__l3NsD']")
+    public WebElement continueBtn ;
 
 }
