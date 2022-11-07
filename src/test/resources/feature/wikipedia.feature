@@ -1,6 +1,7 @@
 Feature: Wikipedia search functionality and verification
 
 
+  @smoke
   Scenario Outline: Wikipedia Search Functionality Title Verification
     Given User is on Wikipedia home page
     When User types "<Search Value>" in the wiki search box

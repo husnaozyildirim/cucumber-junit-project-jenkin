@@ -6,6 +6,7 @@ Feature: Calculate should work for simple math
   Background:
     Given Calculator is open
 
+
   Scenario: Should be able to add number 1
     When I add 2 with 3
     Then I should get 5
