@@ -1,6 +1,6 @@
 Feature:
 
-  @wip
+  @wip @smoke
   Scenario:
     Given go to Hioscar page
     When click search network
